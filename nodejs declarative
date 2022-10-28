@@ -1,0 +1,20 @@
+pipeline {
+    agent { label 'jdk11' }
+    stages {
+        stage('clone'){
+            steps {
+                git url : 'https://github.com/Manipavan98/js-e2e-express-server.git' , branch : 'main'
+                }
+            }
+                stage('run'){
+                steps{
+                     sh 'npm run'
+                }
+            }
+                stage('npm build'){
+                    steps{
+                     sh 'npm build'
+                }
+            }
+    }
+}
